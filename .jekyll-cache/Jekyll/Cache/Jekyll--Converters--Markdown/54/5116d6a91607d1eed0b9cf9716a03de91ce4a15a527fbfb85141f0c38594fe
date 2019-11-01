@@ -1,0 +1,72 @@
+I"i<h1 id="git自学一">Git自学（一）</h1>
+
+<h2 id="1安装">1、安装</h2>
+<p>基本一路next，文末有安装包链接，转需
+进入命令行窗口进行如下设置：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git config --global user.name "Your Name"
+$ git config --global user.email "email@example.com"
+</code></pre></div></div>
+<p>Git是分布式版本控制系统，以上操作相当于设置自己的ID
+<img src="https://img-blog.csdnimg.cn/2019102913532676.png" alt="在这里插入图片描述" /></p>
+<h2 id="2创建版本库">2、创建版本库</h2>
+<p>仓库中的所有文件都可以被Git管理（增、删、改、回滚、历史纪录）
+关键命令（与linux命令相通）</p>
+<h3 id="1第一步创建仓库">（1）第一步创建仓库</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir learngit
+$ cd learngit
+$ pwd
+/Users/michael/learngit
+</code></pre></div></div>
+<h3 id="2第二步初始化库">（2）第二步初始化库</h3>
+<p>也就是把库变为可供Git管理的</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git init
+Initialized empty Git repository in /Users/michael/learngit/.git/
+</code></pre></div></div>
+<p>输入命令后目录中会增加一个.git文件，用于Git管理版本，勿动！！！
+<img src="https://img-blog.csdnimg.cn/2019102913113435.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+<h2 id="3添加提交修改状态查看">3、添加、提交、修改、状态查看</h2>
+<h3 id="1添加-goodtxt-文件">（1）添加 good.txt 文件</h3>
+<p>注意状态的改变，关键命令</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git status
+$ git add good.txt
+</code></pre></div></div>
+<p><img src="https://img-blog.csdnimg.cn/20191029132454877.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+<h3 id="2提交文件">（2）提交文件</h3>
+<p>关键命令</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git commit  good.txt
+</code></pre></div></div>
+<p><img src="https://img-blog.csdnimg.cn/20191029133627260.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+<h3 id="3修改文件">（3）修改文件</h3>
+<p>直接vim修改已提交文件，再次add，commit</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $git commit  -m  " xxxxxxxxxx"  good.txt   //可以直接添加版本注释信息不需要进入Vim
+</code></pre></div></div>
+<p><img src="https://img-blog.csdnimg.cn/20191029134408903.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+
+<h3 id="4-查看工作区和版本库里面最新版本的区别">（4） 查看工作区和版本库里面最新版本的区别</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git diff HEAD -- good.txt
+</code></pre></div></div>
+
+<p><img src="https://img-blog.csdnimg.cn/2019103122393899.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+<h3 id="5撤销修改">（5）撤销修改</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout -- good.txt
+
+</code></pre></div></div>
+<p>撤销工作区的修改，
+<strong>如果已经commit，就撤回到commit之前的状态
+如果没有commit，就撤回到add之前的状态</strong>
+<img src="https://img-blog.csdnimg.cn/20191031224915924.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+<h3 id="6删除文件">（6）删除文件</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git rm good.txt
+$ git commit -m "remove good.txt"
+</code></pre></div></div>
+
+<h2 id="附git-2192下载链接">（附）Git 2.19.2下载链接</h2>
+
+<p>链接: https://pan.baidu.com/s/1bWwFQvWGIFLn7HNFCQ6pfQ
+提取码: 33tu</p>
+:ET

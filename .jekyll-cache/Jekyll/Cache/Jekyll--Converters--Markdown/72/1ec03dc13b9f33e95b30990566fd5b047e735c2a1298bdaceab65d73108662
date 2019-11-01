@@ -1,0 +1,55 @@
+I"�<h1 id="git自学二">Git自学（二）</h1>
+<h2 id="1版本回退前进">1、版本回退，前进</h2>
+<h3 id="1log-查看历史纪录">（1）log 查看历史纪录</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git log
+</code></pre></div></div>
+<p>commit后面字符是计算出的hash值，每一个hash值对应版本信息，版本的回滚，前进其实是HEAD指针（下图第三行蓝色标注，表示当前版本）的移动。
+<img src="https://img-blog.csdnimg.cn/20191029141153713.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+<h3 id="2显示移动到某一版本移动的次数">（2）显示移动到某一版本移动的次数</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git log --pretty=oneline
+</code></pre></div></div>
+<p><img src="https://img-blog.csdnimg.cn/20191029142057726.png" alt="在这里插入图片描述" /></p>
+<h3 id="3基于索引值的操作版本">（3）基于索引值的操作版本</h3>
+<p>关键命令</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git reset --hard 75aed0c  // hard后为要跳到的版本索引值
+</code></pre></div></div>
+<p><img src="https://img-blog.csdnimg.cn/20191029142543907.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+
+<h3 id="4回退到被覆盖的版本">（4）回退到被覆盖的版本</h3>
+<p>现在log中有两条记录，second commit 中新增了功能
+<img src="https://img-blog.csdnimg.cn/20191031231755916.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" />
+现在不需要新功能了，于是reset到first commit 的版本
+<img src="https://img-blog.csdnimg.cn/20191031231813782.png" alt="在这里插入图片描述" />现在log中 sceond commit  记录被覆盖了</p>
+
+<p><img src="https://img-blog.csdnimg.cn/20191031231834678.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" />
+现在又再次需要新功能了，用以下命令可以找回被覆盖的commit版本</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> git reflog
+ git cherry-pick e7da2f2（hash值）
+</code></pre></div></div>
+<p>可以看出sceond commit又找回来了
+<strong>需要注意的是git reflog与git log的区别</strong></p>
+
+<p>git reflog会保留所有的操作记录
+但是git log不会保留reset之前的记录</p>
+
+<p><img src="https://img-blog.csdnimg.cn/2019103123191043.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+<h2 id="2工作区与暂存区">2、工作区与暂存区</h2>
+<p><strong>工作区</strong>：是文件夹中可见的目录
+<strong>暂存区</strong>：前面提到的.git（Git版本库）中最重要的一个部分stage即暂存区
+add、commit操作对应两个区的关系如下图。
+<img src="https://img-blog.csdnimg.cn/201910312233039.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+<h2 id="3添加远程仓库">3、添加远程仓库</h2>
+<p>Github创建仓库，要与本地库同名
+windos下赋值https链接执行以下命令</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git remote add origin https://github.com/djiyt/blogs.git  //本地库关联远程库
+$ git push origin master //将本地文件push到远程库
+
+</code></pre></div></div>
+<p><img src="https://img-blog.csdnimg.cn/20191029145816760.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/djiyt/blogs.git //克隆远程库
+</code></pre></div></div>
+:ET
