@@ -1,0 +1,113 @@
+I"w#<h1 id="分支管理">分支管理</h1>
+<h2 id="一概念理解">一、概念理解</h2>
+<p>个人理解：分支等于开辟了私人仓库，私人仓库间互不影响，只有在最后合并时候需要解决冲突
+<a href="https://www.liaoxuefeng.com/wiki/896043488029600/900003767775424">廖雪峰老师的Git教程</a>中的几幅图很好的说明分支指针、master指针、与Head指针之间的关系</p>
+
+<h3 id="1只有master主线时head指针指向master">1、只有master主线时，HEAD指针指向master</h3>
+<p>每次在master中的提交都会增加节点与连线，主版本的回滚与前进都是HEAD指针在master上的移动
+<img src="https://img-blog.csdnimg.cn/20191101145849668.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+<h3 id="2创建并切换到dev分支">2、创建并切换到dev分支</h3>
+<p><img src="https://img-blog.csdnimg.cn/20191101150735103.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+<h3 id="3dev分支commit">3、dev分支commit</h3>
+<p><img src="https://img-blog.csdnimg.cn/20191101150802852.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+<h3 id="4dev分支与master合并">4、dev分支与master合并<img src="https://img-blog.csdnimg.cn/20191101150828878.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></h3>
+<h3 id="5删除dev分支">5、删除dev分支</h3>
+
+<p><img src="https://img-blog.csdnimg.cn/20191101150919734.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+<h2 id="二创建合并删除分支">二、创建、合并、删除分支</h2>
+<h3 id="1创建dev分支">1、创建dev分支</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git checkout -b dev
+</code></pre></div></div>
+<p><img src="https://img-blog.csdnimg.cn/20191101152745616.png" alt="在这里插入图片描述" />
+git checkout命令加上-b参数表示创建并切换，相当于以下两条命令：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch dev  //创建分支
+$ git checkout dev //切换分支
+</code></pre></div></div>
+<font color="red" size="5">**最新版本支持switch命令切换分支**</font>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git switch -c dev
+$ git switch master
+</code></pre></div></div>
+
+<h3 id="2用git-branch命令查看当前分支">2、用git branch命令查看当前分支：</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch
+</code></pre></div></div>
+<p><img src="https://img-blog.csdnimg.cn/20191101152810795.png" alt="在这里插入图片描述" />
+带*的表示目前所在的分支</p>
+<h3 id="3修改提交goodtxt文件">3、修改提交good.txt文件</h3>
+<p><img src="https://img-blog.csdnimg.cn/20191101153002843.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+<h3 id="4切换回master分支查看goodtxt">4、切换回master分支查看good.txt<img src="https://img-blog.csdnimg.cn/20191101153104794.png" alt="在这里插入图片描述" /></h3>
+<p>发现修改过的good.txt不存在了，因为那个提交是在dev分支上，而master分支此刻的提交点并没有变，示意图如下：
+<img src="https://img-blog.csdnimg.cn/20191101153219754.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+<h3 id="5合并分支">5、合并分支</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git merge dev
+</code></pre></div></div>
+
+<p>git merge命令用于合并指定分支到当前分支。合并后，查看good.txt的内容，可以看到，和dev分支的最新提交完全一样。
+<img src="https://img-blog.csdnimg.cn/20191101153822468.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+<h3 id="6删除分支">6、删除分支</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch -d dev
+</code></pre></div></div>
+<p><img src="https://img-blog.csdnimg.cn/20191101154713209.png" alt="在这里插入图片描述" /></p>
+<h2 id="三解决冲突">三、解决冲突</h2>
+<h3 id="1分别在-feature1分支与master分支上修改goodtxt文件的最后一行在合并时发生冲突">1、分别在 feature1分支与master分支上修改good.txt文件的最后一行，在合并时发生冲突</h3>
+<p><img src="https://img-blog.csdnimg.cn/20191101160424838.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" />
+<img src="https://img-blog.csdnimg.cn/20191101160606105.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+<h3 id="2手动解决冲突">2、手动解决冲突</h3>
+<p>Git用«««&lt;，=======，»»»&gt;标记出不同分支的内容，需要进行手动修改
+<img src="https://img-blog.csdnimg.cn/20191101160740241.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" />
+修改后再次add、commit 冲突解决
+<img src="https://img-blog.csdnimg.cn/20191101160833203.png" alt="在这里插入图片描述" />
+<img src="https://img-blog.csdnimg.cn/20191101160759419.png" alt="在这里插入图片描述" /></p>
+<font color="red" size="5">**注意：在解决合并冲突的过程中，不能部分提交，即附带文件名的提交**</font>
+<p><img src="https://img-blog.csdnimg.cn/20191101161013514.png" alt="在这里插入图片描述" /></p>
+<h2 id="四分支管理">四、分支管理</h2>
+<p>注意–no-ff参数，表示禁用Fast forward，与Fast forward合并后的区别是，可以用git log看看分支历史；Fast forward模式下，删除分支后，会丢掉分支信息。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git merge --no-ff -m "merge with no-ff" dev
+</code></pre></div></div>
+<h2 id="五标签">五、标签</h2>
+<h3 id="1创建标签">1、创建标签</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git tag v1.0
+</code></pre></div></div>
+<p>默认打在最新提交的commit上</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git tag
+</code></pre></div></div>
+
+<p>可以用命令git tag查看所有标签</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$git log --pretty=oneline --abbrev-commit
+$ git tag v0.9 &lt;hash&gt;
+</code></pre></div></div>
+<p>可以给任意的commit id打上标签</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git tag -a v0.1 -m "version 0.1 released" 1094adb
+git show v0.1
+</code></pre></div></div>
+<p>创建带有说明的标签，用-a指定标签名，-m指定说明文字</p>
+
+<p><img src="https://img-blog.csdnimg.cn/2019110211421894.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+
+<h3 id="2-操作标签">2、 操作标签</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git tag -d v0.1
+</code></pre></div></div>
+<p>删除标签</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git push origin v1.0
+</code></pre></div></div>
+<p>推送某个标签到远程</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git push origin --tags
+</code></pre></div></div>
+<p>一次性推送全部尚未推送到远程的本地标签</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push origin :refs/tags/&lt;tagname&gt;
+</code></pre></div></div>
+
+<p>删除一个远程标签。</p>
+:ET
