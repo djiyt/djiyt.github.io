@@ -1,23 +1,10 @@
-I"�<h1 id="一mavic2">一、Mavic2</h1>
+I"�<h1 id="一mavic2">一、Mavic2</h1>
 <p><strong>高瞻远瞩，以小见大</strong>
 <img src="https://img-blog.csdnimg.cn/20191105115347897.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
 
-<h2 id="1相机参数对比">1、相机参数对比</h2>
-<p>| 对比项目 |Mavic2 pro  |Mavic2 zoom|<br />
-|–|–|–|
-|相机 | 哈苏 L1D-20c 相机 |2 倍光学变焦相机
-| 影像传感器 | 1 英寸 CMOS 有效像素 2000 万 |1/2.3 英寸 CMOS 有效像素1200万
-| 镜头视角  |77°  | 83°；48°
-| 光圈| f/2.8 - f/11  | f/2.8（24mm）-f/3.8（48mm）
-| 等效焦距| 28 mm  | 28 mm-48mm
-| 视频 ISO| 100 - 6400  | 100-3200
-| 照片 ISO| 100 - 3200（自动）100 - 12800（手动）  | 100-1600（自动）100-3200（手动）
-| 快门速度| 电子快门：8 - 1/8000 s  | 同左
-| 录像分辨率| 电子快门：8 - 1/8000 s  | 同左
-| 色彩模式| Dlog-M (10bit)，支持HDR video (HLG 10bit) | D-Cinelike
-| 图片格式|JPEG / DNG (RAW) | 同左
-| 视频格式 |  MP4 / MOV (MPEG-4 AVC/H.264, HEVC/H.265)| 同左</p>
-<h2 id="2飞行器">2、飞行器</h2>
+<h3 id="1相机参数对比">1、相机参数对比</h3>
+<p><img src="https://img-blog.csdnimg.cn/20191106232935949.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+<h3 id="2飞行器">2、飞行器</h3>
 <p>起飞重量
 Mavic 2 Pro: 907 g  Mavic 2 Zoom:905g
 尺寸	折叠：
@@ -46,7 +33,7 @@ Mavic 2 Pro: 907 g  Mavic 2 Zoom:905g
 ± 0.3 m（视觉定位正常工作时）；
 ± 1.5 m（GPS正常工作时）</p>
 
-<h2 id="3图传">3、图传</h2>
+<h3 id="3图传">3、图传</h3>
 <p>OcuSync 2.0 图传系统</p>
 
 <ol>
@@ -55,7 +42,7 @@ Mavic 2 Pro: 907 g  Mavic 2 Zoom:905g
   <li>高速下载低延时：更高的通信速率，理论下载速度40M，120ms延时</li>
 </ol>
 
-<h2 id="4全向感知">4、全向感知</h2>
+<h3 id="4全向感知">4、全向感知</h3>
 <p>前后下双目视觉系统，左右单目视觉系统，上下红外传感器</p>
 
 <p>感知系统类型	全向感知系统（前后下双目视觉系统，左右单目视觉系统，上下红外传感器）[1]
@@ -88,31 +75,11 @@ Mavic 2 Pro: 907 g  Mavic 2 Zoom:905g
 <strong>大，有可为</strong>
 <img src="https://img-blog.csdnimg.cn/20191106133930431.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="![在这里插入图片描述](https://img-blog.csdnimg.cn/20191104161253105.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" /></p>
 <h2 id="1参数对比">1、参数对比</h2>
-<p>| 对比项目 |T20  |T16 |<br />
-|–|–|–|
-|作业箱容积| 满载20L|满载16L
-| 喷头数量 | 8个 |8个
-| 最大喷洒流量  |XR11002VS: 6 L/min  | XR110015VS：4.8 L/min
-| 有效喷幅| 4 - 6.5 m | 4 - 7 m
-| FPV摄像头| 1280×960 30fps  | 同左
-| FPV探照灯| 有 | 无
-|整机重量（不含电池）| 21.1 kg  | 18.5 kg
-| 标准起飞重量| 42.6 kg  | 39.5 kg
-| 悬停精度| 启用D-RTK：水平±10 cm，垂直±10 cm 未启用D-RTK：水平±0.6 m，垂直±0.3 m（雷达功能启用：±0.1 m）  | 同左
-| 悬停时间| 15min（@18000 mAh &amp; 起飞重量27.5 kg）10min（@18000 mAh &amp; 起飞重量42.6 kg） | 18 min（@17500 mAh &amp; 起飞重量24.5 kg）10 min（@17500 mAh &amp; 起飞重量39.5 kg）
-| 最大作业飞行速度|7 m/s | 同左
-| 高精度雷达模块型号 | RD2428R| RD2418R
-| 高精度雷达模块工作功耗 | &lt; 20 dBm| 20 dBm
-| 等效全向辐射功率 | 18 W| 15 W
-| 定高及地形跟随 | 高度测量范围：1 - 30 m 定高范围：1.5 - 15 m 山地模式最大坡度：35°| 高度测量范围：1 - 30 m 定高范围：1.5 - 15 m 山地模式最大坡度：35°
-| 避障方向 | 水平方向全向避障| 根据飞行方向实现前后避障
-| 喷洒系统-流量计| 有| 同左
-| 防护等级 | IP67| 同左</p>
-<h2 id="2对比总结">2、对比总结</h2>
+<p><img src="https://img-blog.csdnimg.cn/20191106233027669.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+<h2 id="2t20-亮点">2、T20 亮点</h2>
 <h3 id="亮点一">亮点一:</h3>
-<p>T20 将最大载重提升至 20kg，配合 7 米宽喷幅，单架次作业效率提升至 25 亩，每小时作业效率提升至 180 亩，让作业更为高效。</p>
-
-<p>对比T16:药液装载量提升4L，喷幅提升至0.5 米。作业效率提升了每小时 30 亩。</p>
+<p>T20 将最大载重提升至 20kg，配合 7 米宽喷幅，单架次作业效率提升至 25 亩，每小时作业效率提升至 180 亩，让作业更为高效。
+对比T16:药液装载量提升4L，喷幅提升至0.5 米。作业效率提升了每小时 30 亩。</p>
 
 <h3 id="亮点二">亮点二：</h3>
 <p>T20 6L/min 大流量水泵（提升1.2L/min ），全新喷头布局，左右双喷头，分布更均匀。以及行业首创的四通道高精度流量控制，可对四条液体管路进行独立管控，结合配合深度优化的风场设计，使得各喷头喷洒效果更为接近，整体喷洒更均匀。</p>
@@ -126,5 +93,6 @@ Mavic 2 Pro: 907 g  Mavic 2 Zoom:905g
 <p>标配 RTK 高精度定位模块，轻松实现厘米级作业规划，简单设置作业参数，T20 即可在大田、梯田、果园等多种作业场景下实现全自主作业</p>
 <h3 id="2-三维航线规划">(2) 三维航线规划</h3>
 <p><img src="https://img-blog.csdnimg.cn/2019110616500015.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
-<h3 id="3-精准农业">(3) 精准农业<img src="https://img-blog.csdnimg.cn/20191106165101341.png" alt="在这里插入图片描述" /></h3>
+<h3 id="3-精准农业">(3) 精准农业</h3>
+<p><img src="https://img-blog.csdnimg.cn/20191106165101341.png" alt="在这里插入图片描述" /></p>
 :ET
