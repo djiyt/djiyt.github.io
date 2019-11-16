@@ -1,4 +1,5 @@
-I"�=<h2 id="1字符串">1、字符串</h2>
+I"
+><h2 id="1字符串">1、字符串</h2>
 <p>Python 不支持单字符类型，单字符在 Python 中也是作为一个字符串使用。
 Python 访问子字符串，可以使用方括号来截取字符串。</p>
 
@@ -141,10 +142,14 @@ Python 访问子字符串，可以使用方括号来截取字符串。</p>
 <p><img src="https://img-blog.csdnimg.cn/20191117002943454.png" alt="在这里插入图片描述" /></p>
 <h2 id="字典键的特性">字典键的特性</h2>
 <h3 id="1不允许同一个键出现两次创建时如果同一个键被赋值两次后一个值会被记住">1、不允许同一个键出现两次。创建时如果同一个键被赋值两次，后一个值会被记住</h3>
-<p><img src="https://img-blog.csdnimg.cn/20191117001831369.png" alt="在这里插入图片描述" />
+<p><img src="https://img-blog.csdnimg.cn/20191117001831369.png" alt="在这里插入图片描述" /></p>
+
+<p><strong>输出结果：</strong>
 <img src="https://img-blog.csdnimg.cn/20191117002212404.png" alt="在这里插入图片描述" /></p>
 <h3 id="2键必须不可变所以可以用数字字符串或元组充当所以用列表就不行">2、键必须不可变，所以可以用数字，字符串或元组充当，所以用列表就不行</h3>
-<p><img src="https://img-blog.csdnimg.cn/2019111700184411.png" alt="在这里插入图片描述" />
+<p><img src="https://img-blog.csdnimg.cn/2019111700184411.png" alt="在这里插入图片描述" /></p>
+
+<p><strong>输出结果：</strong>
 <img src="https://img-blog.csdnimg.cn/20191117002225303.png" alt="在这里插入图片描述" /></p>
 
 <table>
