@@ -1,5 +1,4 @@
-I"
-><h2 id="1字符串">1、字符串</h2>
+I"�=<h2 id="1字符串">1、字符串</h2>
 <p>Python 不支持单字符类型，单字符在 Python 中也是作为一个字符串使用。
 Python 访问子字符串，可以使用方括号来截取字符串。</p>
 
@@ -19,7 +18,7 @@ Python 访问子字符串，可以使用方括号来截取字符串。</p>
 <p>输出结果：
 <img src="https://img-blog.csdnimg.cn/20191115225504585.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
 
-<p>&lt;font color=#FF0000 size=5 face=”黑体”&gt; 在需要在字符中使用特殊字符时，python 用反斜杠 \ 转义字符。&lt;/font&gt;</p>
+<font color="red" size="5">在需要在字符中使用特殊字符时，python 用反斜杠 \ 转义字符。</font>
 <h2 id="2列表">2、列表</h2>
 <p>列表是Python中最基本的数据结构。列表中的每个元素都分配一个索引，第一个索引是0，第二个索引是1，依此类推。
 创建一个列表，要把逗号分隔的不同的数据项使用方括号括起来，<strong>列表的数据项不需要具有相同的类型</strong></p>
