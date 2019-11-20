@@ -1,0 +1,129 @@
+I"L'<h1 id="一函数">一、函数</h1>
+<h2 id="1函数定义">1、函数定义</h2>
+
+<ol>
+  <li>函数代码块以 def 关键词开头，后接函数标识符名称和圆括号()。</li>
+  <li>任何传入参数和自变量必须放在圆括号中间。圆括号之间可以用于定义参数。</li>
+  <li>函数的第一行语句可以选择性地使用文档字符串—用于存放函数说明。</li>
+  <li>函数内容以冒号起始，并且缩进。</li>
+  <li>return [表达式] 结束函数，选择性地返回一个值给调用方。不带表达式的return相当于返回 None。</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">def</span> <span class="nf">funcationname</span><span class="p">(</span><span class="n">parameters</span><span class="p">):</span>
+    <span class="s">"funcation description"</span>
+    <span class="n">function_suite</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">expression</span><span class="p">]</span>
+</code></pre></div></div>
+<h2 id="2函数调用">2、函数调用</h2>
+<p><img src="https://img-blog.csdnimg.cn/20191119214734754.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+
+<p><img src="https://img-blog.csdnimg.cn/20191119214752319.png" alt="在这里插入图片描述" /></p>
+<h2 id="3参数传递">3、参数传递</h2>
+<p>可更改(mutable)与不可更改(immutable)对象
+在 python 中，strings, tuples, 和 numbers 是不可更改的对象，而 list,dict 等则是可以修改的对象。</p>
+
+<ul>
+  <li>不可变类型：变量赋值 a=5 后再赋值 a=10，这里实际是新生成一个 int 值对象 10，再让 a 指向它，而 5 被丢弃（python回收机制？），不是改变a的值，相当于新生成了a。</li>
+  <li>可变类型：变量赋值 la=[1,2,3,4] 后再赋值 la[2]=5 则是将 list la 的第三个元素值更改，本身la没有动，只是其内部的一部分值被修改了。</li>
+</ul>
+
+<p>python 函数的参数传递：</p>
+
+<ol>
+  <li>不可变类型：类似 c++ 的值传递，如 整数、字符串、元组。如fun（a），传递的只是a的值，没有影响a对象本身。比如在fun(a)内部修改 a 的值，只是修改另一个复制的对象，不会影响 a 本身，类似值传递。</li>
+  <li>可变类型：类似 c++ 的引用传递，如 列表，字典。如 fun（la），则是将 la 真正的传过去，修改后fun外部的la也会受影响，类似引用传递。</li>
+</ol>
+
+<h2 id="4参数">4、参数</h2>
+
+<ol>
+  <li>
+    <p>必备参数
+ 必备参数须以正确的顺序传入函数。调用时的数量必须和声明时的一样。
+ <img src="https://img-blog.csdnimg.cn/20191119220549639.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+
+    <p>调用printme()函数，必须传入一个参数，不然会出现语法错误：<img src="https://img-blog.csdnimg.cn/20191119220610761.png" alt="在这里插入图片描述" /></p>
+  </li>
+  <li>关键字参数
+ 函数调用使用关键字参数来确定传入的参数值。使用关键字参数允许函数调用时参数的顺序与声明时不一致，因为 Python 解释器能够用参数名匹配参数值。
+ <img src="https://img-blog.csdnimg.cn/20191119220929423.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" />
+输出结果说明使用关键字参数后，参数输入顺序并不重要
+ <img src="https://img-blog.csdnimg.cn/20191119220957163.png" alt="在这里插入图片描述" /></li>
+  <li>不定长参数
+  函数能处理比当初声明时更多的参数。这些参数叫做不定长参数，和上述2种参数不同，声明时不会命名。基本语法如下：</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">def</span> <span class="nf">functionname</span><span class="p">([</span><span class="n">formal_args</span><span class="p">,]</span> <span class="o">*</span><span class="n">var_args_tuple</span> <span class="p">):</span>
+   <span class="s">"函数_文档字符串"</span>
+   <span class="n">function_suite</span>
+   <span class="k">return</span> <span class="p">[</span><span class="n">expression</span><span class="p">]</span>
+</code></pre></div></div>
+<p><img src="https://img-blog.csdnimg.cn/20191119221537782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+
+<p>如下例，预定义参数输出后，多余参数记录到不定长参数中</p>
+
+<p><img src="https://img-blog.csdnimg.cn/2019111922155356.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+
+<h1 id="二模块">二、模块</h1>
+<p>Python 模块(Module)，是一个 Python 文件，以 .py 结尾，包含了 Python 对象定义和Python语句。模块能够更有逻辑地组织 Python 代码段，使得代码更好用，更易懂。模块能定义函数，类和变量，模块里也能包含可执行的代码。</p>
+
+<p><strong>模块定义好后，使用 import 语句来引入模块</strong></p>
+<h3 id="命名空间和作用域">命名空间和作用域</h3>
+<p>每个函数都有自己的命名空间。类的方法的作用域规则和通常函数的一样。Python 会猜测一个变量是局部的还是全局的，它假设任何在函数内赋值的变量都是局部的。因此，如果要给函数内的全局变量赋值，必须使用 global 语句。global VarName 的表达式会告诉 Python， VarName 是一个全局变量，这样 Python 就不会在局部命名空间里寻找这个变量。
+例如在全局命名空间里定义一个变量 Money。再在函数内给变量 Money 赋值，然后 Python 会假定 Money 是一个局部变量。</p>
+
+<p><img src="https://img-blog.csdnimg.cn/20191120102146673.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+
+<p>然而，并没有在访问前声明一个局部变量 Money，结果就是会出现一个 UnboundLocalError 的错误。</p>
+
+<p><img src="https://img-blog.csdnimg.cn/20191120102300164.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+
+<p>取消 global 语句前的注释符就能解决这个问题。</p>
+
+<p><img src="https://img-blog.csdnimg.cn/20191120102356628.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /></p>
+
+<p>正确输出结果：</p>
+
+<p><img src="https://img-blog.csdnimg.cn/20191120102406232.png" alt="在这里插入图片描述" /></p>
+<h3 id="globals-和-locals-函数">globals() 和 locals() 函数</h3>
+<p>根据调用地方的不同，globals() 和 locals() 函数可被用来返回全局和局部命名空间里的名字。</p>
+
+<p>如果在函数内部调用 locals()，返回的是所有能在该函数里访问的命名。</p>
+
+<p>如果在函数内部调用 globals()，返回的是所有在该函数里能访问的全局名字。</p>
+
+<p>两个函数的返回类型都是字典。所以名字们能用 keys() 函数摘取。</p>
+<h1 id="三包">三、包</h1>
+<p>包是一个分层次的文件目录结构，它定义了一个由模块及子包，和子包下的子包等组成的 Python 的应用环境。简单来说，包就是文件夹，但该文件夹下必须存在 <strong>init</strong>.py 文件, 该文件的内容可以为空。<strong>init</strong>.py 用于标识当前文件夹是一个包。
+<img src="https://img-blog.csdnimg.cn/20191120105918121.png" alt="在这里插入图片描述" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#__init__.py代码
+</span><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s">'作为主程序运行'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s">'package_yt 初始化'</span><span class="p">)</span>
+
+
+<span class="c1">#yt1.py代码    
+</span><span class="k">def</span> <span class="nf">yt1</span><span class="p">():</span>
+   <span class="k">print</span> <span class="p">(</span><span class="s">"I'm in yt1"</span><span class="p">)</span>
+
+
+<span class="c1">#yt2.py代码
+</span><span class="k">def</span> <span class="nf">yt2</span><span class="p">():</span>
+   <span class="k">print</span> <span class="p">(</span><span class="s">"I'm in yt2"</span><span class="p">)</span>
+
+
+
+<span class="c1">#main.py代码
+</span><span class="kn">from</span> <span class="nn">package_yt.yt1</span> <span class="kn">import</span> <span class="n">yt1</span>
+<span class="kn">from</span> <span class="nn">package_yt.yt2</span> <span class="kn">import</span> <span class="n">yt2</span>
+
+<span class="n">yt1</span><span class="p">()</span>
+<span class="n">yt2</span><span class="p">()</span>
+
+</code></pre></div></div>
+<p>运行结果：</p>
+
+<p><img src="https://img-blog.csdnimg.cn/20191120110336400.png" alt="在这里插入图片描述" /></p>
+:ET
