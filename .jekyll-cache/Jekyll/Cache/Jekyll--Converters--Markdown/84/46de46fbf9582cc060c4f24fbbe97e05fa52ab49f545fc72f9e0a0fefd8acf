@@ -1,0 +1,210 @@
+I"�,<h1 id="一异常处理">一、异常处理</h1>
+<h2 id="1python常见标准异常">1、Python常见标准异常</h2>
+<p>异常即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。一般情况下，Python无法正常处理程序时就会发生一个异常。异常是Python对象，表示一个错误。当Python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>异常名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>BaseException</td>
+      <td>所有异常的基类</td>
+    </tr>
+    <tr>
+      <td>Exception</td>
+      <td>常规错误的基类</td>
+    </tr>
+    <tr>
+      <td>OverflowError</td>
+      <td>数值运算超出最大限制</td>
+    </tr>
+    <tr>
+      <td>IOError</td>
+      <td>输入/输出操作失败</td>
+    </tr>
+    <tr>
+      <td>Warning</td>
+      <td>警告的基类</td>
+    </tr>
+    <tr>
+      <td>KeyboardInterrupt</td>
+      <td>用户中断执行</td>
+    </tr>
+    <tr>
+      <td>StandardError</td>
+      <td>所有的内建标准异常的基类</td>
+    </tr>
+    <tr>
+      <td>ArithmeticError</td>
+      <td>所有数值计算错误的基类</td>
+    </tr>
+    <tr>
+      <td>FloatingPointError</td>
+      <td>浮点计算错误</td>
+    </tr>
+    <tr>
+      <td>AttributeError</td>
+      <td>对象没有这个属性</td>
+    </tr>
+    <tr>
+      <td>IndexError</td>
+      <td>序列中没有此索引(index)</td>
+    </tr>
+    <tr>
+      <td>KeyError</td>
+      <td>映射中没有这个键</td>
+    </tr>
+    <tr>
+      <td>MemoryError</td>
+      <td>内存溢出错误</td>
+    </tr>
+    <tr>
+      <td>NameError</td>
+      <td>未声明/初始化对象</td>
+    </tr>
+    <tr>
+      <td>RuntimeError</td>
+      <td>一般的运行时错误</td>
+    </tr>
+    <tr>
+      <td>SyntaxError</td>
+      <td>Python 语法错误</td>
+    </tr>
+    <tr>
+      <td>TypeError</td>
+      <td>对类型无效的操作</td>
+    </tr>
+    <tr>
+      <td>RuntimeWarning</td>
+      <td>运行时行为的警告</td>
+    </tr>
+    <tr>
+      <td>TabError</td>
+      <td>Tab 和空格混用</td>
+    </tr>
+    <tr>
+      <td>IndentationError</td>
+      <td>缩进错误</td>
+    </tr>
+    <tr>
+      <td>UnboundLocalError</td>
+      <td>访问未初始化的本地变量</td>
+    </tr>
+    <tr>
+      <td>ImportError</td>
+      <td>导入模块/对象失败</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="2异常处理语句">2、异常处理语句</h2>
+<h3 id="1使用except带异常类型">(1)使用except带异常类型</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+<span class="o">&lt;</span><span class="err">语句</span><span class="o">&gt;</span>        <span class="c1">#需要被检测的代码
+</span><span class="k">except</span> <span class="o">&lt;</span><span class="err">名字</span><span class="o">&gt;</span><span class="err">：</span>
+<span class="o">&lt;</span><span class="err">语句</span><span class="o">&gt;</span>        <span class="c1">#except语句捕获同名异常信息并处理
+</span><span class="k">except</span> <span class="o">&lt;</span><span class="err">名字</span><span class="o">&gt;</span><span class="err">，</span><span class="o">&lt;</span><span class="err">数据</span><span class="o">&gt;</span><span class="p">:</span>
+<span class="o">&lt;</span><span class="err">语句</span><span class="o">&gt;</span>        <span class="c1">#except语句捕获同名异常信息并处理，获得附加的数据（异常参数）
+</span><span class="k">else</span><span class="p">:</span>
+<span class="o">&lt;</span><span class="err">语句</span><span class="o">&gt;</span>        <span class="c1">#如果没有异常发生
+</span></code></pre></div></div>
+
+<ul>
+  <li>如果当try后的语句执行时发生异常，python就跳回到try并执行第一个匹配该异常的except子句，异常处理完毕，控制流就通过整个try语句（除非在处理异常时又引发新的异常）。</li>
+  <li>如果在try后的语句里发生了异常，却没有匹配的except子句，异常将被递交到上层的try，或者到程序的最上层（这样将结束程序，并打印默认的出错信息）。</li>
+  <li>如果在try子句执行时没有发生异常，python将执行else语句后的语句（如果有else的话），然后控制流通过整个try语句。</li>
+</ul>
+
+<h3 id="2使用except不带异常类型">(2)使用except不带异常类型</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+    <span class="err">正常的操作</span>
+   <span class="o">......................</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="err">发生异常，执行这块代码</span>
+   <span class="o">......................</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="err">如果没有异常执行这块代码</span>
+</code></pre></div></div>
+<p><strong>try-except语句捕获所有发生的异常。不能通过该程序识别出具体的异常信息。因为它会捕获所有的异常。</strong></p>
+<h3 id="3使用except而带多种异常类型">(3)使用except而带多种异常类型</h3>
+<p>使用相同的except语句来处理多个异常信息</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+    <span class="err">正常的操作</span>
+   <span class="o">......................</span>
+<span class="k">except</span><span class="p">(</span><span class="n">Exception1</span><span class="p">[,</span> <span class="n">Exception2</span><span class="p">[,</span><span class="o">...</span><span class="n">ExceptionN</span><span class="p">]]]):</span>
+   <span class="err">发生以上多个异常中的一个，执行这块代码</span>
+   <span class="o">......................</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="err">如果没有异常执行这块代码</span>
+</code></pre></div></div>
+
+<h3 id="4try-finally-语句">(4)try-finally 语句</h3>
+<p>try-finally 语句无论是否发生异常都将执行finally中的代码。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+<span class="o">&lt;</span><span class="err">语句</span><span class="o">&gt;</span>
+<span class="k">finally</span><span class="p">:</span>
+<span class="o">&lt;</span><span class="err">语句</span><span class="o">&gt;</span>    <span class="c1">#退出try时总会执行
+</span><span class="k">raise</span>
+</code></pre></div></div>
+<h1 id="二文件io">二、文件I/O</h1>
+<h2 id="1读取键盘输入">1、读取键盘输入</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">str</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"请输入："</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s">"你输入的内容是: "</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+</code></pre></div></div>
+<h2 id="2打开和关闭文件">2、打开和关闭文件</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#打开一个文件
+</span><span class="n">fo</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"foo.txt"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span>
+
+
+<span class="sb">``</span><span class="err">`</span><span class="n">python</span>
+<span class="err">在这里插入代码片</span>
+</code></pre></div></div>
+
+<p>#关闭打开的文件
+fo.close()</p>
+
+<h2 id="3write和read方法">3、write()和read()方法</h2>
+<p>write()方法可将任何字符串写入一个打开的文件，创建foo.txt文件，并将收到的内容写入该文件，并最终关闭文件。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#打开一个文件
+</span><span class="n">fo</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"foo.txt"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span>
+<span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s">"DJI</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+ <span class="c1">#关闭打开的文件
+</span><span class="n">fo</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>read（）方法从一个打开的文件中读取一个字符串。需要重点注意的是，Python字符串可以是二进制数据，而不是仅仅是文字。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#打开一个文件
+</span><span class="n">fo</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"foo.txt"</span><span class="p">,</span> <span class="s">"r+"</span><span class="p">)</span>
+<span class="nb">str</span> <span class="o">=</span> <span class="n">fo</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">"读取的字符串是 : "</span><span class="p">,</span> <span class="nb">str</span>
+<span class="c1">#关闭打开的文件
+</span><span class="n">fo</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+<h2 id="4重命名与删除文件">4、重命名与删除文件</h2>
+<p>Python的os模块提供了执行文件处理操作的方法，比如重命名和删除文件。要使用这个模块，必须先导入它，然后才可以调用相关的各种功能。
+rename()方法：
+rename()方法需要两个参数，当前的文件名和新文件名。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="c1">#重命名文件test1.txt到test2.txt。
+</span><span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span> <span class="s">"test1.txt"</span><span class="p">,</span> <span class="s">"test2.txt"</span> <span class="p">)</span>
+</code></pre></div></div>
+<p>remove()方法
+你可以用remove()方法删除文件，需要提供要删除的文件名作为参数。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="c1">#删除一个已经存在的文件test2.txt
+</span><span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s">"test2.txt"</span><span class="p">)</span>
+</code></pre></div></div>
+:ET
