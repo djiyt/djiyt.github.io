@@ -1,4 +1,4 @@
-I"�,<h1 id="一异常处理">一、异常处理</h1>
+I"�,<h1 id="一异常处理">一、异常处理</h1>
 <h2 id="1python常见标准异常">1、Python常见标准异常</h2>
 <p>异常即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。一般情况下，Python无法正常处理程序时就会发生一个异常。异常是Python对象，表示一个错误。当Python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。</p>
 
@@ -102,7 +102,7 @@
 </table>
 
 <h2 id="2异常处理语句">2、异常处理语句</h2>
-<h3 id="1使用except带异常类型">(1)使用except带异常类型</h3>
+<h3 id="1使用except带异常类型">（1）使用except带异常类型</h3>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
 <span class="o">&lt;</span><span class="err">语句</span><span class="o">&gt;</span>        <span class="c1">#需要被检测的代码
 </span><span class="k">except</span> <span class="o">&lt;</span><span class="err">名字</span><span class="o">&gt;</span><span class="err">：</span>
@@ -116,10 +116,10 @@
 <ul>
   <li>如果当try后的语句执行时发生异常，python就跳回到try并执行第一个匹配该异常的except子句，异常处理完毕，控制流就通过整个try语句（除非在处理异常时又引发新的异常）。</li>
   <li>如果在try后的语句里发生了异常，却没有匹配的except子句，异常将被递交到上层的try，或者到程序的最上层（这样将结束程序，并打印默认的出错信息）。</li>
-  <li>如果在try子句执行时没有发生异常，python将执行else语句后的语句（如果有else的话），然后控制流通过整个try语句。</li>
+  <li>如果在try子句执行时没有发生异常，python将执行else语句后的语句（如果有else的话），然后控制流通过整个try语句。
+    <h3 id="2使用except不带异常类型">（2）使用except不带异常类型</h3>
+  </li>
 </ul>
-
-<h3 id="2使用except不带异常类型">(2)使用except不带异常类型</h3>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
     <span class="err">正常的操作</span>
@@ -131,7 +131,7 @@
     <span class="err">如果没有异常执行这块代码</span>
 </code></pre></div></div>
 <p><strong>try-except语句捕获所有发生的异常。不能通过该程序识别出具体的异常信息。因为它会捕获所有的异常。</strong></p>
-<h3 id="3使用except而带多种异常类型">(3)使用except而带多种异常类型</h3>
+<h3 id="3使用except而带多种异常类型">（3）使用except而带多种异常类型</h3>
 <p>使用相同的except语句来处理多个异常信息</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
@@ -144,7 +144,7 @@
     <span class="err">如果没有异常执行这块代码</span>
 </code></pre></div></div>
 
-<h3 id="4try-finally-语句">(4)try-finally 语句</h3>
+<h3 id="4try-finally-语句">（4）try-finally 语句</h3>
 <p>try-finally 语句无论是否发生异常都将执行finally中的代码。</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
