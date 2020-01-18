@@ -1,0 +1,7 @@
+I"m<h1 id="集成测试">集成测试</h1>
+<h2 id="增量与非增量测试">增量与非增量测试</h2>
+<p><strong>非增量测试或“崩溃”测试</strong>：软件测试先应先独立地测试每个模块，然后再将这些模块组装成完整的程序
+<strong>增量测试或集成测试</strong>：先将下一步要测试的模块组装到测试完成的模块集合中，然后再进行测试
+<img src="https://img-blog.csdnimg.cn/20200105215342398.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzM4NjUwNDcw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" />
+如上图所示的程序可作为一个例子，矩形框代表程序的6个模块（子程序或过程），连接模块间的线条代表程序的控制层次，模块A调用模块B、C和D，模块B调用模块E，模块D调用模块F。非增量测试首先对6个模块中的每一个模块进行单独的模块测试，将每个模块视为一个独立实体，这些模块可以同时或按次序进行测试。最后，将这些模块组装或集成为完整的程序。</p>
+:ET
